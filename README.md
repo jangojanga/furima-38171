@@ -20,13 +20,13 @@
 | Column        | Type      | Options     |
 | ------        | ------    | ----------- |
 | kstegori      | string    | null: false |
-| burando       | string    | 
-| syasin        | string    | 
-| syouhinname   | string    | 
-| syouhinsetumei| string    | 
-| user          | references| 
-| syuppinsya    | references| 
-| kattahito     | references| 
+| burando       | string    | null: false |
+| syasin        | string    | null: false |
+| syouhinname   | string    | null: false |
+| syouhinsetumei| string    | null: false |
+| user          | references| null: false |
+| syuppinsya    | references| null: false |
+| kattahito     | references| null: false |
 |||
 ### Association
 
