@@ -26,16 +26,16 @@
 | ------        | ------    | ----------- 
 | name          | string    | null: false |
 | description   | text      | null: false |
-| category      |  string   | null: false |
-| item status   | ActiveHash| null: false |
-| lord          | ActiveHash| null: false |
-| former area   | ActiveHash| null: false |
-| days before   | ActiveHash| null: false |
-| price         | string| null: false |
+| category_id      | integer| null: false |
+| item status_id   | integer| null: false |
+| lord_id          | integer| null: false |
+| former area_id   | integer| null: false |
+| days before_id   | integer| null: false |
+| price            | string| null: false |
 |||
 ### Association
 
-- has_many :items
+- has_one :buyer
 - has_many :user
 
 
@@ -48,7 +48,7 @@
 
 ### Association
 
-- belongs_to :items
+- belongs_to :item
 - belongs_to :user
 - has_one :adrress
 
@@ -56,13 +56,13 @@
 
 | Column    | Type       | Options                        |
 | -------   | ---------- | ------------------------------ |
-| buyer     | references |                                |
-| tel       | string     | null: false, foreign_key: true |
 |post code  | string     | null: false, foreign_key: true |
-|prefectures| string     | null: false, foreign_key: true |
-|address   | string     | null: false, foreign_key: true |
-|building   | string     | null: false, foreign_key: true |
-
+|prefectures| string     | string | null: false |
+|city       | string     | string | null: false |
+|address   | string      | string | null: false |
+|building   | string     | string | null: false |
+| tel       | string     | null: false, foreign_key: true |
+| buyer     | references | null: false, foreign_key: true |
 ### Association
 
 - belongs_to :buyer
