@@ -57,7 +57,7 @@
 | Column    | Type       | Options                        |
 | -------   | ---------- | ------------------------------ |
 |post_code  | string     | string | null: false |
-|prefectures| string     | string | null: false |
+|former_area_id| references | null: false, foreign_key: true |
 |city       | string     | string | null: false |
 |address   | string      | string | null: false |
 |building   | string     |
