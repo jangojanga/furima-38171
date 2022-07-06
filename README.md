@@ -5,12 +5,12 @@
 | Column             | Type   | Options     |
 | ------------------ | ------ | ----------- |
 | name               | string | null: false |
-| email              | string | null: false |
+| email              | string | null: false ,unique: ture|
 | encrypted_password | string | null: false |
-| first name         | string | null: false |
-| first name huri    | string | null: false |
-| family name        | string | null: false |
-| family name huri   | string | null: false |
+| first_name         | string | null: false |
+| first_name_huri    | string | null: false |
+| family_name        | string | null: false |
+| family_name_huri   | string | null: false |
 | birthday           | date   | null: false |
   
 
@@ -27,16 +27,16 @@
 | name          | string    | null: false |
 | description   | text      | null: false |
 | category_id      | integer| null: false |
-| item status_id   | integer| null: false |
+| item_status_id   | integer| null: false |
 | lord_id          | integer| null: false |
-| former area_id   | integer| null: false |
-| days before_id   | integer| null: false |
-| price            | string| null: false |
+| former_area_id   | integer| null: false |
+| days_before_id   | integer| null: false |
+| price            | integer| null: false |
 |||
 ### Association
 
 - has_one :buyer
-- has_many :user
+- belongs_to :user
 
 
 ## buyer テーブル
@@ -56,12 +56,12 @@
 
 | Column    | Type       | Options                        |
 | -------   | ---------- | ------------------------------ |
-|post code  | string     | null: false, foreign_key: true |
+|post_code  | string     | string | null: false |
 |prefectures| string     | string | null: false |
 |city       | string     | string | null: false |
 |address   | string      | string | null: false |
-|building   | string     | string | null: false |
-| tel       | string     | null: false, foreign_key: true |
+|building   | string     |
+| tel       | string     | string | null: false |
 | buyer     | references | null: false, foreign_key: true |
 ### Association
 
