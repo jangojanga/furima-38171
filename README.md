@@ -56,13 +56,13 @@
 
 | Column    | Type          | Options                        |
 | -------   | ----------    | ------------------------------ |
-|post_code  | string        | not null: false |
-|former_area_id| references | not null: false, foreign_key: true |
-|city       | string        | not null: false |
-|address   | string         | not null: false |
+|post_code  | string        | null: false |
+|former_area_id| integer | null: false, foreign_key: true |
+|city       | string        | null: false |
+|address   | string         | null: false |
 |building   | string        |
-| tel       | string        | not null: false |
-| buyer     | references    | not null: false, foreign_key: true |
+| tel       | string        | null: false |
+| buyer     | references    | null: false, foreign_key: true |
 ### Association
 
 - belongs_to :buyer
