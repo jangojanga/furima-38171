@@ -54,15 +54,15 @@
 
 ## adrress テーブル
 
-| Column    | Type       | Options                        |
-| -------   | ---------- | ------------------------------ |
-|post_code  | string     | string | null: false |
-|former_area_id| references | null: false, foreign_key: true |
-|city       | string     | string | null: false |
-|address   | string      | string | null: false |
-|building   | string     |
-| tel       | string     | string | null: false |
-| buyer     | references | null: false, foreign_key: true |
+| Column    | Type          | Options                        |
+| -------   | ----------    | ------------------------------ |
+|post_code  | string        | not null: false |
+|former_area_id| references | not null: false, foreign_key: true |
+|city       | string        | not null: false |
+|address   | string         | not null: false |
+|building   | string        |
+| tel       | string        | not null: false |
+| buyer     | references    | not null: false, foreign_key: true |
 ### Association
 
 - belongs_to :buyer
