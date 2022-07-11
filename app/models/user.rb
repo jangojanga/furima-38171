@@ -22,6 +22,11 @@ class User < ApplicationRecord
 
         validates :password, format: { with:/\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i}
 
+        # validates :password, format: { with:/^[a-zA-Z0-9]+$/}
+
+         validates :family_name, format: { with: /\A[一-龥ぁ-ん]/}
+         validates :first_name, format: { with: /\A[一-龥ぁ-ん]/}
+
 
 
 
