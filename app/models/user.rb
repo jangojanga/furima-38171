@@ -6,7 +6,7 @@ class User < ApplicationRecord
          has_many :items
          has_many :buyers
 
-         validates :email, uniqueness: true
+        
 
 
 
@@ -24,8 +24,8 @@ class User < ApplicationRecord
 
         # validates :password, format: { with:/^[a-zA-Z0-9]+$/}
 
-         validates :family_name, format: { with: /\A[一-龥ぁ-ん]/}
-         validates :first_name, format: { with: /\A[一-龥ぁ-ん]/}
+         validates :family_name, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/}
+         validates :first_name, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/}
 
 
 
