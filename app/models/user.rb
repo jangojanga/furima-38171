@@ -3,8 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :items
-  has_many :buyers
+  # has_many :items
+  # has_many :buyers
 
   validates :name, presence: true
   validates :first_name, presence: true
@@ -17,8 +17,6 @@ class User < ApplicationRecord
   validates :first_name_huri, format: { with: /\A[\p{katakana} ー－&&[^ -~｡-ﾟ]]+\z/ }
 
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i }
-
-  # validates :password, format: { with:/^[a-zA-Z0-9]+$/}
 
   validates :family_name, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/ }
   validates :first_name, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/ }
