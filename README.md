@@ -52,7 +52,7 @@
 - belongs_to :user
 - has_one :adrress
 
-## adrress テーブル
+## adrressse テーブル
 
 | Column    | Type          | Options                        |
 | -------   | ----------    | ------------------------------ |
