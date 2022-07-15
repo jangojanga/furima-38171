@@ -11,11 +11,11 @@ priceInput.addEventListener("input", () => {
 
   const Tax = 0.1;
   const addTaxDom = document.getElementById("add-tax-price");
-  addTaxDom.innerHTML = inputValue * Tax;
+  addTaxDom.innerHTML = Math.trunc(inputValue * Tax);
 
   const Taxe = 0.9;
   const addTax = document.getElementById("profit");
-  addTax.innerHTML = inputValue * Taxe;
+  addTax.innerHTML = Math.trunc(inputValue * Taxe);
 
 
 
