@@ -23,11 +23,13 @@ class Item < ApplicationRecord
   validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 },
                   format: { with: /\A[0-9]+\z/ }
 
+validates :price, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0}
+
   
                   validates :category_id, numericality: { greater_than_or_equal_to: 2, less_than_or_equal_to: 9_999_999 }
                   validates :item_status_id, numericality: { greater_than_or_equal_to: 2, less_than_or_equal_to: 9_999_999 }
                   validates :lord_id, numericality: { greater_than_or_equal_to: 2, less_than_or_equal_to: 9_999_999 }
-                  validates :former_area_id, numericality: { greater_than_or_equal_to: 2, less_than_or_equal_to: 9_999_999 }
+                  validates :former_area_id, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 9_999_999 }
                   validates :days_before_id, numericality: { greater_than_or_equal_to: 2, less_than_or_equal_to: 9_999_999 }
 
 end
