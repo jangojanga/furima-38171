@@ -12,6 +12,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string :family_name
       t.string :family_name_huri
       t.date   :birthday
+      
 
 
 

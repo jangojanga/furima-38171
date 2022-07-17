@@ -10,6 +10,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer  :former_area_id
       t.integer  :days_before_id
       t.integer  :price
+      t.references :user
       t.timestamps
     end
   end
