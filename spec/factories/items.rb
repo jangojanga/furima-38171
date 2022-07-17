@@ -3,7 +3,6 @@ FactoryBot.define do
 
      association :user
 
-    # image= {ixture_file_upload('app/assets/images/flag.png')}
     name { Faker::Name.last_name }
     description { Faker::Name.last_name }
     category_id { Faker::Number.between(from: 2, to: 21) }

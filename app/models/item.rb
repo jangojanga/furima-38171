@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  has_one :buyer
+  # has_one :buyer
   belongs_to :user
 
   has_one_attached :image
@@ -18,18 +18,15 @@ class Item < ApplicationRecord
   validates :lord_id, presence: true
   validates :former_area_id, presence: true
   validates :days_before_id, presence: true
-  validates :price, presence: true
+  validates :price, presence: true, numericality: {only_integer: true},format:{ greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 },
+  format: { with: /\A[0-9]+\z/ }
 
-  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 },
-                  format: { with: /\A[0-9]+\z/ }
-
-validates :price, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0}
 
   
-                  validates :category_id, numericality: { greater_than_or_equal_to: 2, less_than_or_equal_to: 9_999_999 }
-                  validates :item_status_id, numericality: { greater_than_or_equal_to: 2, less_than_or_equal_to: 9_999_999 }
-                  validates :lord_id, numericality: { greater_than_or_equal_to: 2, less_than_or_equal_to: 9_999_999 }
-                  validates :former_area_id, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 9_999_999 }
-                  validates :days_before_id, numericality: { greater_than_or_equal_to: 2, less_than_or_equal_to: 9_999_999 }
+                  validates :category_id, numericality: { greater_than_or_equal_to: 2, less_than_or_equal_to: 21 }
+                  validates :item_status_id, numericality: { greater_than_or_equal_to: 2, less_than_or_equal_to: 8 }
+                  validates :lord_id, numericality: { greater_than_or_equal_to: 2, less_than_or_equal_to: 8 }
+                  validates :former_area_id, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 47 }
+                  validates :days_before_id, numericality: { greater_than_or_equal_to: 2, less_than_or_equal_to: 4 }
 
 end
