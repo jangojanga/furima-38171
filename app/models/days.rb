@@ -3,10 +3,9 @@ class Days < ActiveHash::Base
     { id: 1, name: '---' },
     { id: 2, name: '1\~2日発送' },
     { id: 3, name: '2\~3日発送' },
-    { id: 4, name: '4\~7日発送' },
+    { id: 4, name: '4\~7日発送' }
   ]
 
-
 include ActiveHash::Associations
- belongs_to :item
+ has_many :items
 end

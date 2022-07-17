@@ -1,14 +1,18 @@
 class Item < ApplicationRecord
   # has_one :buyer
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :user
+
+  
 
   has_one_attached :image
 
-  has_many :genres
-  has_many :statuss
-  has_many :lords
-  has_many :areas
-  has_many :dayss
+  belongs_to :genre
+  belongs_to :status
+  belongs_to :lord
+  belongs_to :area
+  belongs_to :days
 
   validates :image, presence: true
   validates :name, presence: true
