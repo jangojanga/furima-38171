@@ -3,8 +3,8 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
   def index
-    @items = Item.all
-
+    @items = Item.order("created_at DESC")
+    @area = Area.all
   end
 
 
