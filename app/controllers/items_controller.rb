@@ -30,29 +30,29 @@ class ItemsController < ApplicationController
   #   end
   # end
 
-  # def edit
-  #   @item = Item.find(params[:id])
+  def edit
+    @item = Item.find(params[:id])
 
-  #   if current_user.id != @item.user.id
-  #     redirect_to root_path
-  #   end
-  # end
+    if current_user.id != @item.user.id
+      redirect_to root_path
+    end
+  end
 
-  # def update
+  def update
 
-  #   @item = Item.find(params[:id])
+    @item = Item.find(params[:id])
 
-  #   if current_user.id != @item.user.id
-  #     redirect_to root_path
-  #  end
+    if current_user.id != @item.user.id
+      redirect_to root_path
+   end
 
-  #   @item.update(item_params)
-  #   if @item.save
-  #     redirect_to item_path(@item.id)
-  #  else
-  #   render :new
-  #  end
-  # end
+    @item.update(item_params)
+    if @item.save
+      redirect_to item_path(@item.id)
+   else
+    render :new
+   end
+  end
 
 
   private
