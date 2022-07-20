@@ -47,11 +47,11 @@
         </tr>
         <tr>
           <th class="detail-item">カテゴリー</th>
-          <td class="detail-value"><%= @item.lord.name %></td>
+          <td class="detail-value"><%= Genre.find(@item.category_id).name %></td>
         </tr>
         <tr>
           <th class="detail-item">商品の状態</th>
-          <td class="detail-value"><%= @item.lord.name %></td>
+          <td class="detail-value"><%= Status.find(@item.item_status_id).name %></td>
         </tr>
         <tr>
           <th class="detail-item">配送料の負担</th>
@@ -59,11 +59,11 @@
         </tr>
         <tr>
           <th class="detail-item">発送元の地域</th>
-          <td class="detail-value"><%= @item.lord.name %></td>
+          <td class="detail-value"><%= Area.find(@item.former_area_id).name %></td>
         </tr>
         <tr>
           <th class="detail-item">発送日の目安</th>
-          <td class="detail-value"><%= @item.lord.name %></td>
+          <td class="detail-value"><%= Days.find(@item.days_before_id).name %></td>
         </tr>
       </tbody>
     </table>

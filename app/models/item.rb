@@ -29,7 +29,7 @@ class Item < ApplicationRecord
   
                   validates :category_id, numericality: { greater_than_or_equal_to: 2, less_than_or_equal_to: 21 }
                   validates :item_status_id, numericality: { greater_than_or_equal_to: 2, less_than_or_equal_to: 8 }
-                  validates :lord_id, numericality: { greater_than_or_equal_to: 2, less_than_or_equal_to: 8 }
+                  validates :lord_id, numericality: { greater_than_or_equal_to: 2, less_than_or_equal_to: 3 }
                   validates :former_area_id, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 47 }
                   validates :days_before_id, numericality: { greater_than_or_equal_to: 2, less_than_or_equal_to: 4 }
 
