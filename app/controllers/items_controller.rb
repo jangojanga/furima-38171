@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
 
   before_action :set_item, only: [:edit, :show, :update, :destroy ]
 
-  before_action :a, only:[:edit, :destroy ]
+  before_action :a, only:[:edit, :destroy :update ]
 
 
   def index
@@ -40,14 +40,9 @@ class ItemsController < ApplicationController
 
   def edit
     
-
   end
 
   def update
-
-    if current_user.id != @item.user.id
-      redirect_to root_path
-   end
 
     if @item.update(item_params)
       redirect_to item_path(@item.id)
