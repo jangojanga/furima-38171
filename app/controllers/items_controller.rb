@@ -42,7 +42,6 @@ class ItemsController < ApplicationController
 
   def update
 
-    @item = Item.find(params[:id])
 
     if current_user.id != @item.user.id
       redirect_to root_path
