@@ -1,8 +1,18 @@
 class OrdersController < ApplicationController
 
+  before_action :authenticate_user!, except: []
+
 def index
   @ab = Ab.new
   @item = Item.find(params[:item_id])
+
+  if current_user.id == @item.user.id
+    redirect_to root_path
+  end
+
+  if @item.buyer != nil
+    redirect_to root_path
+  end
 end
 
 

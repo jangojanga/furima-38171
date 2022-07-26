@@ -40,6 +40,9 @@ class ItemsController < ApplicationController
    end
 
   def edit
+    if @item.buyer != nil
+      redirect_to root_path
+    end
     
   end
 
