@@ -4,15 +4,16 @@ class ItemsController < ApplicationController
 
   before_action :set_item, only: [:edit, :show, :update, :destroy ]
 
-  before_action :a, only:[:edit, :destroy :update ]
+  before_action :a, only:[:edit, :destroy, :update ]
 
 
   def index
     @items = Item.order("created_at DESC")
+    
   end
 
   def show
-  
+     @buyer = Buyer.all
   end
 
   def new
@@ -55,7 +56,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:image, :name, :description, :category_id, :item_status_id, :lord_id, :former_area_id, :days_before_id, :price).merge(user_id: current_user.id)
+    params.require(:item).permit(:image, :name, :description, :category_id, :item_status_id, :lord_id, :former_area_id, :days_before_id,:price ).merge(user_id: current_user.id)
   end
 
   def set_item

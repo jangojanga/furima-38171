@@ -13,6 +13,11 @@ class Item < ApplicationRecord
   belongs_to :lord
   belongs_to :area
   belongs_to :days
+  
+  has_one :buyer
+
+
+
 
   validates :image, presence: true
   validates :name, presence: true
