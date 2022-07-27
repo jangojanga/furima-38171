@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe Ab, type: :model do
+RSpec.describe Order, type: :model do
   before do
-    @ab = FactoryBot.build(:ab)
+    @ab = FactoryBot.build(:order)
   end
 
   describe '商品新規登録' do
