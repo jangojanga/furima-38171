@@ -1,18 +1,31 @@
 require 'rails_helper'
 
-RSpec.describe Order, type: :model do
+RSpec.describe Ab, type: :model do
   before do
-    @ab = FactoryBot.build(:order)
+
+  @user = FactoryBot.create(:user)
+
+  @item = FactoryBot.create(:item)
+
+  @ab = FactoryBot.build(:ab,item_id: @item,user_id: @user)
+
+    sleep 0.1
   end
 
   describe '商品新規登録' do
     context '新規登録できる場合' do
       it '全部正しく存在すれば登録できる' do
         expect(@ab).to be_valid
+        @ab.building = ''
+      end
+
+        it '建物がなくても登録できる' do
+          expect(@ab).to be_valid
+          @ab.building = ''
       end
     end
-    context '郵便番号できない場合' do
-         it "では登録できない" do
+    context '登録できない場合' do
+         it "郵便番号なしでは登録できない" do
            @ab.post_code = ''
            @ab.valid?
            expect(@ab.errors.full_messages).to include("Post code can't be blank", "Post code is invalid. Include hyphen(-)")
@@ -46,7 +59,7 @@ RSpec.describe Order, type: :model do
 
 
 
-        it "番地がハイフンnasi
+        it "番地がハイフンなし
         では登録できない" do
           @ab.post_code = 1234567
           @ab.valid?
@@ -74,13 +87,13 @@ RSpec.describe Order, type: :model do
         it 'userが紐付いていないと保存できない' do
           @ab.user_id = nil
           @ab.valid?
-          expect(@ab.errors.full_messages).to include('User must exist')
+          expect(@ab.errors.full_messages).to include("User can't be blank")
         end
 
         it 'userが紐付いていないと保存できない' do
           @ab.item_id = nil
           @ab.valid?
-          expect(@ab.errors.full_messages).to include('Item must exist')
+          expect(@ab.errors.full_messages).to include( "Item can't be blank")
         end
 
 

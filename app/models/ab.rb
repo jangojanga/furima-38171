@@ -5,10 +5,13 @@ class Ab
   # ここにバリデーションの処理を書く
   with_options presence: true do
 
+    validates :user_id
+    validates :item_id
+
     validates :former_area_id, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 47 }
     validates :city
     validates :address
-    validates :tel, format: {with: /\A^0\d{9,10}$\z/}
+    validates :tel, format: {with: /\A\d{10,11}\z/}
     validates :token
     validates :post_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
 

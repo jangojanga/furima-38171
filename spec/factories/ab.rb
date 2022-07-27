@@ -1,7 +1,5 @@
 FactoryBot.define do
-  factory :order do
-
-
+  factory :ab do
 
     post_code { "000-0000" }
     former_area_id{ Faker::Number.between(from: 2, to: 47) }
