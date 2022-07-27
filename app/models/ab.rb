@@ -23,6 +23,6 @@ class Ab
   buyer = Buyer.create(user_id: user_id, item_id: item_id)
   # 住所を保存する
   # donation_idには、変数donationのidと指定する
-  Adrressse.create(post_code: post_code,former_area_id: former_area_id, city: city, address: address, building: building, tel: tel, buyer: buyer)
+  Adrressse.create(post_code: post_code,former_area_id: former_area_id, city: city, address: address, building: building, tel: tel, buyer_id: buyer_id)
   end
 end

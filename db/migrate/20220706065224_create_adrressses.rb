@@ -2,13 +2,14 @@ class CreateAdrressses < ActiveRecord::Migration[6.0]
   def change
     create_table :adrressses do |t|
 
-       t.string     :post_code
-       t.integer    :former_area_id
-       t.string     :city
-       t.string     :address
-       t.string     :building
-       t.string     :tel
-      t.references  :buyer
+       t.string     :post_code        null: false
+       t.integer    :former_area_id        null: false
+       t.string     :city        null: false
+       t.string     :address        null: false
+       t.string     :building        null: false
+       t.string     :tel        null: false
+      t.references  :buyer     null: false, foreign_key: true
+
       t.timestamps
     end
   end

@@ -12,9 +12,9 @@ RSpec.describe Ab, type: :model do
     sleep 0.1
   end
 
-  describe '商品新規登録' do
+  describe '商品購入' do
     context '新規登録できる場合' do
-      it '全部正しく存在すれば登録できる' do
+      it '全部正しく存在すれば購入できる' do
         expect(@ab).to be_valid
         @ab.building = ''
       end
@@ -28,7 +28,7 @@ RSpec.describe Ab, type: :model do
          it "郵便番号なしでは登録できない" do
            @ab.post_code = ''
            @ab.valid?
-           expect(@ab.errors.full_messages).to include("Post code can't be blank", "Post code is invalid. Include hyphen(-)")
+           expect(@ab.errors.full_messages).to include("Post code can't be blank")
          end
         
         it "都道府県が空では登録できない" do
@@ -59,8 +59,7 @@ RSpec.describe Ab, type: :model do
 
 
 
-        it "番地がハイフンなし
-        では登録できない" do
+        it "番地がハイフンなしでは登録できない" do
           @ab.post_code = 1234567
           @ab.valid?
           expect(@ab.errors.full_messages).to include("Post code is invalid. Include hyphen(-)")
@@ -73,13 +72,13 @@ RSpec.describe Ab, type: :model do
         end
 
         it "電話番号9桁以下は登録できない" do
-          @ab.tel = "090-123-567"
+          @ab.tel = "090123567"
           @ab.valid?
           expect(@ab.errors.full_messages).to include("Tel is invalid")
         end
 
         it "電話番号１２桁以上は登録できない" do
-          @ab.tel = "0900-12340-56780"
+          @ab.tel = "09001234056780"
           @ab.valid?
           expect(@ab.errors.full_messages).to include("Tel is invalid")
         end
