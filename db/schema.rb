@@ -10,16 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_06_065224) do
+ActiveRecord::Schema.define(version: 2022_07_12_111454) do
+
+  create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
 
   create_table "adrressses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "post_code"
-    t.integer "former_area_id"
-    t.string "city"
-    t.string "address"
+    t.string "post_code", null: false
+    t.integer "former_area_id", null: false
+    t.string "city", null: false
+    t.string "address", null: false
     t.string "building"
-    t.string "tel"
-    t.bigint "buyer_id"
+    t.string "tel", null: false
+    t.bigint "buyer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["buyer_id"], name: "index_adrressses_on_buyer_id"
@@ -35,15 +56,15 @@ ActiveRecord::Schema.define(version: 2022_07_06_065224) do
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.integer "category_id"
-    t.integer "item_status_id"
-    t.integer "lord_id"
-    t.integer "former_area_id"
-    t.integer "days_before_id"
-    t.integer "price"
-    t.bigint "user_id"
+    t.string "name", null: false
+    t.text "description", null: false
+    t.integer "category_id", null: false
+    t.integer "item_status_id", null: false
+    t.integer "lord_id", null: false
+    t.integer "former_area_id", null: false
+    t.integer "days_before_id", null: false
+    t.integer "price", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_items_on_user_id"
@@ -67,4 +88,7 @@ ActiveRecord::Schema.define(version: 2022_07_06_065224) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "adrressses", "buyers"
+  add_foreign_key "items", "users"
 end
