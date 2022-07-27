@@ -89,7 +89,7 @@ RSpec.describe Ab, type: :model do
           expect(@ab.errors.full_messages).to include("User can't be blank")
         end
 
-        it 'userが紐付いていないと保存できない' do
+        it 'itemが紐付いていないと保存できない' do
           @ab.item_id = nil
           @ab.valid?
           expect(@ab.errors.full_messages).to include( "Item can't be blank")

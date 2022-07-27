@@ -34,8 +34,6 @@
     </div>
     <%# /支払額の表示 %>
 
-    <%# <%= form_with(model: @item, local: true) id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %> 
-
 <%= form_with(model: @ab, url: item_orders_path,local: true,id: 'charge-form') do |f| %>
 
  <%= render 'shared/error_messages', model: f.object %>
