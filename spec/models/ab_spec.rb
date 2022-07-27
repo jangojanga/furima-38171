@@ -15,12 +15,11 @@ RSpec.describe Ab, type: :model do
     context '新規登録できる場合' do
       it '全部正しく存在すれば購入できる' do
         expect(@ab).to be_valid
-        @ab.building = ''
       end
 
       it '建物がなくても登録できる' do
-        expect(@ab).to be_valid
         @ab.building = ''
+        expect(@ab).to be_valid
       end
     end
     context '登録できない場合' do
@@ -54,7 +53,7 @@ RSpec.describe Ab, type: :model do
         expect(@ab.errors.full_messages).to include("Tel can't be blank")
       end
 
-      it '番地がハイフンなしでは登録できない' do
+      it '郵便番号がハイフンなしでは登録できない' do
         @ab.post_code = 1_234_567
         @ab.valid?
         expect(@ab.errors.full_messages).to include('Post code is invalid. Include hyphen(-)')
