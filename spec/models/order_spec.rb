@@ -59,7 +59,31 @@ RSpec.describe Ab, type: :model do
           expect(@ab.errors.full_messages).to include("Tel is invalid")
         end
 
-     
+        it "電話番号9桁以下は登録できない" do
+          @ab.tel = "090-123-567"
+          @ab.valid?
+          expect(@ab.errors.full_messages).to include("Tel is invalid")
+        end
+
+        it "電話番号１２桁以上は登録できない" do
+          @ab.tel = "0900-12340-56780"
+          @ab.valid?
+          expect(@ab.errors.full_messages).to include("Tel is invalid")
+        end
+
+        it 'userが紐付いていないと保存できない' do
+          @ab.user_id = nil
+          @ab.valid?
+          expect(@ab.errors.full_messages).to include('User must exist')
+        end
+
+        it 'userが紐付いていないと保存できない' do
+          @ab.item_id = nil
+          @ab.valid?
+          expect(@ab.errors.full_messages).to include('Item must exist')
+        end
+
+
 
 
 
