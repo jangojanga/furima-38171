@@ -1,6 +1,6 @@
 class Ab
   include ActiveModel::Model
-  attr_accessor :user_id,:item_id,:post_code,:former_area_id,:city,:address,:building,:tel, :buyer ,:token
+  attr_accessor :user_id,:item_id,:post_code,:former_area_id,:city,:address,:building,:tel, :buyer_id ,:token
 
   # ここにバリデーションの処理を書く
   with_options presence: true do
@@ -19,10 +19,9 @@ class Ab
 
 
   def save
-  # 寄付情報を保存し、変数donationに代入する
+
   buyer = Buyer.create(user_id: user_id, item_id: item_id)
-  # 住所を保存する
-  # donation_idには、変数donationのidと指定する
-  Adrressse.create(post_code: post_code,former_area_id: former_area_id, city: city, address: address, building: building, tel: tel, buyer_id: buyer_id)
+
+  Adrressse.create(post_code: post_code,former_area_id: former_area_id, city: city, address: address, building: building, tel: tel, buyer_id: buyer.id)
   end
 end

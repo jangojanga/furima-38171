@@ -4,13 +4,12 @@ class OrdersController < ApplicationController
 
 def index
   @ab = Ab.new
- 
 
   if current_user.id == @item.user.id || @item.buyer != nil
     redirect_to root_path
   end
 
- 
+
 end
 
 
@@ -38,12 +37,12 @@ private
   end
 
   def set_item
-    @item = Item.find(params[:id])
+    @item = Item.find(params[:item_id])
   end
 
 
   def pay_item
-    Payjp.api_key = "PAYJP_SECRET_KEY"  # 自身のPAY.JPテスト秘密鍵を記述しましょう
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]  # 自身のPAY.JPテスト秘密鍵を記述しましょう
     Payjp::Charge.create(
       amount: @item.price,  # 商品の値段
       card: @ab.token,    # カードトークン
