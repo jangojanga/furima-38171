@@ -126,7 +126,6 @@ RSpec.describe User, type: :model do
         expect(@user.errors.full_messages).to include('Family name is invalid')
       end
 
-
       it 'birthdayがない場合は登録できないこと' do
         @user.birthday = ''
         @user.valid?

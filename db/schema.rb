@@ -34,13 +34,13 @@ ActiveRecord::Schema.define(version: 2022_07_12_111454) do
   end
 
   create_table "adrressses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "post_code"
-    t.integer "former_area_id"
-    t.string "city"
-    t.string "address"
+    t.string "post_code", null: false
+    t.integer "former_area_id", null: false
+    t.string "city", null: false
+    t.string "address", null: false
     t.string "building"
-    t.string "tel"
-    t.bigint "buyer_id"
+    t.string "tel", null: false
+    t.bigint "buyer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["buyer_id"], name: "index_adrressses_on_buyer_id"
@@ -56,15 +56,15 @@ ActiveRecord::Schema.define(version: 2022_07_12_111454) do
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.text "description"
-    t.integer "category_id"
-    t.integer "item_status_id"
-    t.integer "lord_id"
-    t.integer "former_area_id"
-    t.integer "days_before_id"
-    t.integer "price"
-    t.bigint "user_id"
+    t.string "name", null: false
+    t.text "description", null: false
+    t.integer "category_id", null: false
+    t.integer "item_status_id", null: false
+    t.integer "lord_id", null: false
+    t.integer "former_area_id", null: false
+    t.integer "days_before_id", null: false
+    t.integer "price", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_items_on_user_id"
@@ -89,4 +89,6 @@ ActiveRecord::Schema.define(version: 2022_07_12_111454) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "adrressses", "buyers"
+  add_foreign_key "items", "users"
 end
